@@ -8,6 +8,9 @@ import Vue from "vue";
 
 //引入组件开始
 import Home from './components/home/Home.vue';
+import Vip from './components/vip/Vip.vue';
+import Shopcart from './components/shopcart/Shopcart.vue';
+import Search from './components/search/Search.vue';
 import App from './App.vue';
 //引入组件结束
 
@@ -26,16 +29,11 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 let router = new VueRouter({
   routes: [
-    {
-      name: 'home',
-      path: '/home',
-      component: Home
-    }
-    ,{
-      path: '/',
-      redirect: {name: "home"},
-      component: Home
-    }
+    {path: '/', redirect: {name: "home"}, component: Home}
+    , {name: 'home', path: '/home', component: Home}
+    , {name: 'vip', path: '/vip', component: Vip}
+    , {name: 'shopcart', path: '/shopcart', component: Shopcart}
+    , {name: 'search', path: '/search', component: Search}
   ]
 })
 //VueRouter:结束
