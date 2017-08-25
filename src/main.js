@@ -10,6 +10,9 @@ import './static/css/global.css';
 
 
 //引入组件开始
+import Goodscomment from './components/commons/Goodscomment.vue';
+import Goodsdetail from './components/goods/Goodsdetail.vue';
+import Goods from './components/goods/Goods.vue';
 import Photodetail from './components/photo/Photodetail.vue';
 import Photos from './components/photo/Photolist.vue';
 import Newdetail from './components/news/Newdetail.vue';
@@ -27,6 +30,9 @@ Vue.component('NavBar', NavBar);
 
 import Common from './components/commons/Common.vue';
 Vue.component('Common', Common);
+
+import Mylb from './components/commons/Mylb.vue';
+Vue.component('Mylb', Mylb);
 //引入全局组件结束
 
 //MintUi:开始
@@ -69,6 +75,10 @@ let router = new VueRouter({
     , {name: 'photolist', path: '/photo/photolist', component: Photos}
     , {name: 'photodetail', path: '/photo/photodetail/:imgid', component: Photodetail}
     , {name: 'common', path: '/commonts/common', component: Common}
+    , {name: 'goods.list', path: '/goods/goodlist', component: Goods}
+    , {name: 'goodsdetail', path: '/goods/goodsdetail/:goodsid', component: Goodsdetail}
+    , {name: 'goods.comment', path: '/goods/commonts/comment', component: Goodscomment}
+    , {name: 'goods.introduce', path: '/goods/photo/detial', component: Newdetail}
   ]
 })
 //VueRouter:结束

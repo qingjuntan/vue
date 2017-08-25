@@ -1,6 +1,6 @@
 <template>
   <div class="tmpl">
-    <nav-bar title="新闻详情"></nav-bar>
+    <nav-bar :title="title"></nav-bar>
     <div class="news-title">
       <p v-text="newsInfo.title"></p>
       <div>
@@ -12,28 +12,43 @@
     <div class="news-content" v-html="newsInfo.content"></div>
   </div>
 </template>
-<script>
+<script type=text/ecmascript-6>
   export default {
     data(){
       return {
-        newsInfo:{}
+        newsInfo: {},
+        title: ''
       }
     },
     created(){
       //获取路由参数
       let id = this.$route.query.myid;
       //拼接url发起请求
-      this.$ajax.get('getnew/'+id)
-          .then(res=>{
-        // console.log(res);
-        this.newsInfo = res.data.message[0];
-    })
-    .catch(err=>{
-        console.log('获取图文详情数据失败',err);
-    })
-    }
+      this.$ajax.get('getnew/' + id)
+          .then(res => {
+            // console.log(res);
+            this.newsInfo = res.data.message[0];
+          })
+          .catch(err => {
+            console.log('获取图文详情数据失败', err);
+          })
+    },
+    beforeRouteEnter (to, from, next) {
+      let title = "";
+      if (from.name === "new") {
+        title = "新闻详情";
+      } else if (from.name === "goodsdetail") {
+        title = "商品详情";
+      } else if (to.name.startsWith("new")) {
+        title = "新闻详情";
+      } else if (to.name.startsWith("goods")) {
+        title = "商品详情";
+      }
+      next(vm => {
+        vm.title = title;
+      })
+    },
   }
-
 
 
 </script>
@@ -52,7 +67,6 @@
     margin-top: 5px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
-
 
   /*主体文章的左右距离*/
 

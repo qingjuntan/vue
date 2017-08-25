@@ -35,7 +35,7 @@
           .catch(err => {
             console.log("新闻列表加载失败啦", err);
           })
-    }
+    },
   }
 </script>
 <style scoped>

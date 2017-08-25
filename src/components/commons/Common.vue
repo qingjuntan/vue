@@ -30,6 +30,7 @@
     </div>
   </div>
 </template>
+
 <script type=text/ecmascript-6>
   export default {
     data(){
@@ -91,6 +92,7 @@
 
 
 </script>
+
 <style scoped>
   .photo-comment > div span:nth-child(1) {
     float: left;

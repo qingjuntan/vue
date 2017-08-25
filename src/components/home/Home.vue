@@ -1,43 +1,40 @@
 <template>
   <div>
     <!--轮播图-->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="(img,index) in imgs" :key="index">
-        <a :href="img.url">
-          <img :src="img.img" alt="">
-        </a>
-      </mt-swipe-item>
-    </mt-swipe>
+    <mylb url="getlunbo"></mylb>
     <!--九宫格-->
     <div class="mui-content">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link :to="{name:'news'}">
             <span class="mui-icon mui-icon-home"></span>
-            <div class="mui-media-body">Home</div>
-          </router-link></li>
+            <div class="mui-media-body">新闻列表</div>
+          </router-link>
+        </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <router-link :to="{name:'photolist' }" >
+          <router-link :to="{name:'photolist' }">
             <span class="mui-icon mui-icon-email"></span>
             <div class="mui-media-body">图文分享</div>
-          </router-link></li>
+          </router-link>
+        </li>
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+          <router-link :to="{name:'goods.list' }">
+            <span class="mui-icon mui-icon-chatbubble"></span>
+            <div class="mui-media-body">商品展示</div>
+          </router-link>
+        </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a>
-            <span class="mui-icon mui-icon-chatbubble"></span>
-            <div class="mui-media-body">Chat</div>
-          </a></li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a >
             <span class="mui-icon mui-icon-location"></span>
-            <div class="mui-media-body">location</div>
+            <div class="mui-media-body">留言反馈</div>
           </a></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a >
+          <a>
             <span class="mui-icon mui-icon-search"></span>
             <div class="mui-media-body">搜索资讯</div>
           </a></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a >
+          <a>
             <span class="mui-icon mui-icon-phone"></span>
             <div class="mui-media-body">联系我们</div>
           </a></li>
@@ -142,4 +139,6 @@
     height: 50px;
     width: 50px;
   }
+
+
 </style>

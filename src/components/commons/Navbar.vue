@@ -25,6 +25,7 @@
 <style scoped>
   .mui-bar {
     position: relative;
+    height:50px;
   }
 
 </style>
