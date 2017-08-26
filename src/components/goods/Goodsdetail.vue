@@ -46,6 +46,8 @@
 
 <script type=text/ecmascript-6>
   import Connector from '../commons/Connector.js';
+  import GoodsTools from '../commons/GoodsTools.js';
+
   export default {
     data(){
       return {
@@ -58,6 +60,11 @@
       click(){
         this.isShow = true;
         Connector.$emit('changeNum', this.pickNum);
+        //点击购物车，传送ID值给
+        GoodsTools.addOrUpDate({
+          id: this.goodsInfo.id,
+          num: this.pickNum,
+        });
       },
       afterEnter(){
         this.isShow = false;
@@ -80,8 +87,8 @@
       //跳转到图文介绍组件(新闻详情)
       productPl(){
         this.$router.push({
-          name:'goods.introduce',
-          query:{myid: this.goodsInfo.id}
+          name: 'goods.introduce',
+          query: {myid: this.goodsInfo.id}
         })
       }
     },

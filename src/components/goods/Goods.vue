@@ -46,6 +46,7 @@
       this.loadmoreFirst();
     },
     methods: {
+      //加载第一页数据
       loadmoreFirst(){
         this.$ajax.get('getgoods?pageindex=1')
             .then(res => {
@@ -55,7 +56,8 @@
               console.log('获取商品列表失败', err);
             })
       },
-      loadmoreByPage(page){//追加数据
+      //追加数据，使得goodsList的数据追加更多的数据
+      loadmoreByPage(page){
         this.$ajax.get('getgoods?pageindex=' + page)
             .then(res=> {
               if (res.data.message.length != 10) {
@@ -67,16 +69,19 @@
               console.log('获取商品列表失败', err);
             })
       },
+      //下拉函数的触发
       loadBottom(){
-        this.loadmoreByPage(this.pageIndex);
-        this.pageIndex++;
-        this.$refs.loadmore.onBottomLoaded();
+        this.loadmoreByPage(this.pageIndex);   //调用加载页面
+        this.pageIndex++;                      //触发一次就++一次
+        this.$refs.loadmore.onBottomLoaded();  //this.$refs.loadmore这里指的是组件对象，this.$refs.loadmore.$data就可以拿到组件里面的data数据，onBottomLoaded是组件里面的方法，这里可以调用！
       },
-      stateChange(s){
-        console.log(s);
+      stateChange(s){ //状态码，可以查看pull和drop状态
+        //console.log(s);
       }
     },
+    //进行doom操作
     mounted(){
+      //this.$parent.$refs指的是app.vue中vue对象
       let headerHeight = this.$parent.$refs.n1.$el.offsetHeight;
       let footerHeight = this.$parent.$refs.n2.offsetHeight;
       this.parentHeight = document.documentElement.clientHeight - headerHeight - footerHeight;

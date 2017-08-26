@@ -42,6 +42,10 @@
       Connector.$on('changeNum', num => {
         this.num = this.num + num;
       })
+      //监听总数
+      Connector.$on('changeShopcart2', num => {
+        this.num = num;
+      })
     }
   }
 </script>
@@ -49,10 +53,11 @@
   .main-enter-active, .main-leave-active {
     transition: opacity .5s
   }
-  .main-enter, .main-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+
+  .main-enter, .main-leave-to /* .fade-leave-active in below version 2.1.8 */
+  {
     opacity: 0
   }
-
 
 
 </style>

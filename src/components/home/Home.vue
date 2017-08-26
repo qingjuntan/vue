@@ -52,7 +52,7 @@
     , created(){
       this.$ajax.get('getlunbo')
           .then(res => {
-            console.log(res);
+            //console.log(res);
             this.imgs = res.data.message;
 
           })
